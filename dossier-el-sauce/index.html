@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dossier visual de Fundación El Sauce para el proyecto La ciudad de los niños (UAI, 2026).">
+<meta name="robots" content="noindex">
+<title>Dossier Fundación El Sauce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Exo+2:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: expediente de campo. Una columna de lectura (1120px) con láminas: foto a sangre, diagramas y fichas.
+   Una sola apariencia, a propósito: el lenguaje MIA del WORKSPACE (fondo beige, letras bosque, óxido para lo nuestro). */
+:root{
+  --paper:#E7DECC; --paper-hi:#EFE8DA; --paper-deep:#CFC3AB; --tile:#DCD2BE;
+  --ink:#1F3B2C; --ink-soft:#4A5E50; --ink-faint:#6E7D70;
+  --rust:#9C5014; --rust-hi:#B8651C; --rust-wash:rgba(156,80,20,.12);
+  --line:rgba(31,59,44,.2); --line-soft:rgba(31,59,44,.1);
+  --on-ink:#EFE8DA;
+  --m0:#EAE3D3; --m1:#CFCDB6; --m2:#A2AC93; --m3:#5E7862; --m4:#1F3B2C;
+  --display:"Instrument Serif","Iowan Old Style",Georgia,serif;
+  --body:"Exo 2","Segoe UI",system-ui,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1120px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:var(--ink);text-decoration-color:var(--rust);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h2{font-size:clamp(34px,5vw,52px);line-height:1}
+h3{font-size:26px;line-height:1.1}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--rust)}
+.muted{color:var(--ink-soft)}
+.small{font-size:13px}
+.mono{font-family:var(--mono)}
+.num{font-variant-numeric:tabular-nums}
+figure{margin:0}
+figcaption,.cap{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.02em}
+img{display:block;max-width:100%}
+
+/* barra superior */
+.top{border-bottom:1px solid var(--line);background:var(--paper-hi)}
+.top .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;padding-block:10px;font-family:var(--mono);font-size:11.5px;color:var(--ink-soft)}
+.top b{color:var(--ink);font-weight:500}
+
+/* navegación */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(231,222,204,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav ul{list-style:none;margin:0;display:flex;gap:6px;overflow-x:auto;padding-block:9px;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:block;white-space:nowrap;text-decoration:none;font-size:13px;font-weight:500;padding:5px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+.nav a:hover{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.nav a.us{border-color:var(--rust);color:var(--rust)}
+.nav a.us:hover{background:var(--rust);color:var(--on-ink)}
+
+/* hero */
+.hero{position:relative;background:var(--ink);color:var(--on-ink);overflow:hidden}
+.hero img{width:100%;height:clamp(300px,52vw,560px);object-fit:cover;object-position:50% 40%;opacity:.78}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,59,44,0) 30%,rgba(31,59,44,.92) 92%)}
+.hero .over{position:absolute;inset:auto 0 0 0;z-index:2;padding-block:28px}
+.hero .eyebrow{color:#E8B98C}
+.hero h1{font-size:clamp(52px,10vw,120px);line-height:.92;margin-top:8px}
+.hero .lede{max-width:60ch;font-size:clamp(16px,1.9vw,19px);margin-top:12px;color:#E9E2D2}
+.hero .credit{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:12px;z-index:2;color:#E9E2D2;opacity:.75}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.kpi{background:var(--paper-hi);padding:18px 14px 16px;min-width:0}
+.kpi .n{font-family:var(--mono);font-size:clamp(26px,3vw,34px);font-weight:500;line-height:1;letter-spacing:-.02em}
+.kpi .n small{font-size:.55em;color:var(--ink-soft)}
+.kpi .l{font-size:12.5px;color:var(--ink-soft);margin-top:8px;line-height:1.35}
+.kpi.us .n{color:var(--rust)}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:480px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* secciones */
+section{padding-block:64px 8px}
+.shead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:12px 40px;align-items:end;margin-bottom:28px}
+.shead .intro{color:var(--ink-soft);max-width:58ch}
+@media (max-width:800px){.shead{grid-template-columns:1fr}}
+.rule{height:1px;background:var(--line);margin-top:56px}
+
+/* resumen */
+.five{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.five > div{border-top:2px solid var(--ink);padding-top:12px;min-width:0}
+.five > div.us{border-top-color:var(--rust)}
+.five h4{margin:0 0 6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.five .us h4{color:var(--rust)}
+.five p{font-size:14.5px}
+@media (max-width:980px){.five{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.five{grid-template-columns:1fr}}
+
+/* línea de tiempo */
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.tl{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0;min-width:980px;position:relative}
+.stack{display:grid;gap:36px;margin-top:40px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:46px;height:2px;background:var(--ink)}
+.ev{position:relative;padding:0 14px 0 0}
+.ev .y{font-family:var(--mono);font-size:13px;font-weight:500;height:34px}
+.ev .dot{width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);margin:5px 0 14px}
+.ev h5{margin:0 0 4px;font-size:14.5px;font-weight:600}
+.ev p{font-size:13px;color:var(--ink-soft);line-height:1.4}
+.ev.key .dot{background:var(--ink)}
+.ev.us .dot{background:var(--rust);border-color:var(--rust);box-shadow:0 0 0 5px var(--rust-wash)}
+.ev.us .y,.ev.us h5{color:var(--rust)}
+
+/* modelo */
+.model{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.model{grid-template-columns:1fr}}
+.quote{font-family:var(--display);font-size:clamp(22px,2.6vw,28px);line-height:1.2;border-left:3px solid var(--rust);padding-left:18px}
+.quote cite{display:block;margin-top:10px;font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-faint);letter-spacing:.04em}
+.house{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.house .foco{background:var(--ink);color:var(--on-ink);padding:18px 16px;border-radius:10px 10px 2px 2px;min-height:118px}
+.house .foco b{display:block;font-family:var(--display);font-weight:400;font-size:26px;line-height:1;margin-bottom:6px}
+.house .foco p{font-size:13.5px;color:#D8D2C2}
+.house .base{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.house .hab{background:var(--tile);padding:12px 16px;border-radius:2px 2px 10px 10px}
+.house .hab b{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.house .hab p{font-size:13px;color:var(--ink-soft)}
+.house .lbl{grid-column:1 / -1;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.cycle svg{width:100%;height:auto;max-width:520px;display:block;margin:0 auto}
+.cycle .arc{fill:none;stroke:var(--ink);stroke-width:2}
+.cycle .node{fill:var(--ink)}
+.cycle .nn{fill:var(--on-ink);font-family:var(--mono);font-size:12px;text-anchor:middle;dominant-baseline:central}
+.cycle .lab{fill:var(--ink);font-family:var(--body);font-size:15px;font-weight:600}
+.cycle .sub{fill:var(--ink-soft);font-family:var(--body);font-size:12px}
+.cycle .center{fill:var(--rust);font-family:var(--display);font-size:22px;text-anchor:middle}
+.values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:28px}
+.values div{background:var(--paper-hi);border:1px solid var(--line-soft);border-radius:10px;padding:14px;min-width:0}
+.values b{display:block;font-size:14.5px;margin-bottom:4px}
+.values p{font-size:13px;color:var(--ink-soft)}
+@media (max-width:860px){.values{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.values{grid-template-columns:1fr}}
+
+/* red de aliados */
+.net{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:36px}
+.net .hub{grid-column:2;grid-row:1 / span 2;background:var(--ink);color:var(--on-ink);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px;text-align:center}
+.net .hub b{font-family:var(--display);font-weight:400;font-size:34px;line-height:1}
+.net .hub p{font-size:13.5px;color:#D8D2C2}
+.net .hub .big{font-family:var(--mono);font-size:44px;color:#E8B98C;line-height:1}
+.grp{border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0;background:var(--paper-hi)}
+.grp h5{margin:0 0 8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--ink-soft)}
+.grp h5 span{color:var(--rust)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:12.5px;padding:3px 9px;border-radius:999px;background:var(--paper);border:1px solid var(--line-soft)}
+.chip.k{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.grp.wide{grid-column:1 / -1}
+@media (max-width:860px){.net{grid-template-columns:1fr}.net .hub{grid-column:auto;grid-row:auto}}
+
+/* barras */
+.bars{display:grid;gap:9px;margin-top:6px}
+.bar{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:13px}
+.bar .t{height:16px;background:var(--tile);border-radius:3px;overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--ink-soft)}
+.bar.us .t i{background:var(--rust)}
+.bar.us .k,.bar.us .v{color:var(--rust);font-weight:600}
+.bar .v{font-family:var(--mono);text-align:right}
+@media (max-width:440px){.bar{grid-template-columns:110px minmax(0,1fr) 36px}}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;margin-top:40px;align-items:start}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+.panel h4{margin:0 0 4px;font-size:15px;font-weight:600}
+.panel .sub{font-size:13px;color:var(--ink-soft);margin-bottom:14px}
+
+/* personas */
+.org{display:grid;gap:14px}
+.tier{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.tier .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.tier .k b{display:block;font-family:var(--display);font-size:48px;letter-spacing:0;text-transform:none;color:var(--ink);line-height:1;font-weight:400}
+.tier.us .k b{color:var(--rust)}
+@media (max-width:600px){.tier{grid-template-columns:1fr}}
+.board{display:flex;flex-wrap:wrap;gap:6px}
+.board span{font-size:13px;padding:5px 10px;border-radius:8px;background:var(--paper-hi);border:1px solid var(--line-soft)}
+.board span em{font-style:normal;color:var(--ink-faint);font-size:11.5px;margin-left:4px}
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.person{display:flex;gap:12px;align-items:center;min-width:0}
+.person img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--paper-hi)}
+.person b{display:block;font-size:14.5px}
+.person span{font-size:12.5px;color:var(--ink-soft)}
+.person.lead img{border-color:var(--rust)}
+@media (max-width:760px){.team{grid-template-columns:1fr}}
+.dots{display:grid;grid-template-columns:repeat(22,10px);gap:4px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--ink-soft);display:block}
+.dots i.h{background:var(--rust)}
+
+/* mapa */
+.terr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:36px;align-items:start}
+@media (max-width:900px){.terr{grid-template-columns:1fr}}
+.mapbox{background:var(--paper-hi);border:1px solid var(--line-soft);border-radius:14px;padding:12px}
+svg.map{width:100%;height:auto;display:block}
+.map .uv{stroke:var(--paper-hi);stroke-width:1.4}
+.map .s0{fill:var(--m0)} .map .s1{fill:var(--m1)} .map .s2{fill:var(--m2)} .map .s3{fill:var(--m3)} .map .s4{fill:var(--m4)}
+.map .uv.focus{stroke:var(--rust);stroke-width:3}
+.map .sch{fill:var(--ink);opacity:.45}
+.map .site{stroke:var(--paper-hi);stroke-width:2}
+.map .site.barrio{fill:var(--rust)}
+.map .site.prog{fill:var(--rust-hi);fill-opacity:.55;stroke:var(--rust)}
+.map .star{fill:var(--rust);stroke:var(--paper-hi);stroke-width:2}
+.map .uvl{font-family:var(--mono);font-size:12px;fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.map .uvl.big{font-size:14px;font-weight:500}
+.map .uvl.dark{fill:var(--on-ink)}
+.map .callout{font-family:var(--body);font-size:15px;font-weight:700;fill:var(--rust);paint-order:stroke;stroke:var(--paper-hi);stroke-width:4px}
+.map .lead{stroke:var(--rust);stroke-width:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;font-size:12px;color:var(--ink-soft);align-items:center}
+.legend .ramp{display:flex;align-items:center;gap:0}
+.legend .ramp i{width:26px;height:10px;display:block}
+.legend .sw{display:inline-flex;align-items:center;gap:6px}
+.legend .sw i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.facts{display:grid;gap:0}
+.fact{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:12px 0;border-top:1px solid var(--line);align-items:baseline}
+.fact .n{font-family:var(--mono);font-size:24px;font-weight:500;line-height:1}
+.fact.us .n{color:var(--rust)}
+.fact p{font-size:14px}
+.fact p span{color:var(--ink-soft)}
+
+/* proyectos */
+.proj{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.card{background:var(--paper-hi);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.card.p1{grid-column:span 6;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.card.p2,.card.p3{grid-column:span 3}
+.card.p4,.card.p5{grid-column:span 3}
+@media (max-width:900px){.card.p1{grid-template-columns:1fr}.card.p2,.card.p3,.card.p4,.card.p5{grid-column:span 6}}
+.card .ph{position:relative;background:var(--tile)}
+.card .ph img{width:100%;height:100%;min-height:220px;max-height:340px;object-fit:cover}
+.card.p1 .ph img{max-height:none;height:100%}
+.card .ph .tag{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--paper-hi);color:var(--ink);padding:4px 9px;border-radius:999px}
+.card .ph .tag.us{background:var(--rust);color:var(--on-ink)}
+.card .bd{padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px}
+.card .who{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:.02em}
+.card .stats{display:flex;flex-wrap:wrap;gap:8px 18px}
+.card .stats div{min-width:0}
+.card .stats b{display:block;font-family:var(--mono);font-size:22px;font-weight:500;line-height:1.1}
+.card .stats span{font-size:12px;color:var(--ink-soft)}
+.card .why{font-size:13.5px;border-top:1px dashed var(--line);padding-top:10px}
+.card .why b{color:var(--rust);font-weight:600}
+.card .q{font-family:var(--display);font-size:20px;line-height:1.2}
+.ages svg{width:100%;height:auto;display:block;max-width:900px}
+@media (max-width:640px){.ages svg{min-width:600px}}
+.oneliner p.small{font-size:14.5px;line-height:1.45}
+.ages .ax{stroke:var(--line);stroke-width:1}
+.ages .tick{fill:var(--ink-faint);font-family:var(--mono);font-size:11px;text-anchor:middle}
+.ages .rl{fill:var(--ink);font-family:var(--body);font-size:12.5px;text-anchor:end;dominant-baseline:central}
+.ages .b{fill:var(--ink-soft)}
+.ages .b.hit{fill:var(--ink)}
+.ages .band{fill:var(--rust-wash);stroke:var(--rust);stroke-dasharray:4 3}
+.ages .bl{fill:var(--rust);font-family:var(--mono);font-size:11px;text-anchor:middle}
+.ages .rng{fill:var(--ink-soft);font-family:var(--mono);font-size:10.5px;dominant-baseline:central}
+.others{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px;margin-top:6px}
+.others div{border-top:1px solid var(--line);padding:10px 0;min-width:0}
+.others b{font-size:14px;display:block}
+.others span{font-size:12.5px;color:var(--ink-soft)}
+.others.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:860px){.others{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.others{grid-template-columns:1fr}}
+
+/* Alejandra */
+.ale{display:grid;grid-template-columns:300px minmax(0,1fr);gap:36px;align-items:start}
+@media (max-width:860px){.ale{grid-template-columns:1fr}}
+.ale .portrait img{width:100%;max-width:300px;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.ale .id h3{font-size:36px;margin-top:14px}
+.ale .id p{font-size:14px;color:var(--ink-soft)}
+.ale .badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.ale .badges span{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line)}
+.ale .badges span.k{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.career svg{width:100%;height:auto;display:block;min-width:560px}
+.career .ax{stroke:var(--line)}
+.career .tick{fill:var(--ink-faint);font-family:var(--mono);font-size:11px;text-anchor:middle}
+.career .b{fill:var(--ink-soft)}
+.career .b.k{fill:var(--ink)}
+.career .b.now{fill:var(--rust)}
+.career .t{fill:var(--ink);font-family:var(--body);font-size:12.5px;dominant-baseline:central}
+.career .t.in{fill:var(--on-ink);font-weight:600}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.quotes blockquote{margin:0;font-family:var(--display);font-size:21px;line-height:1.22;padding:16px 18px;background:var(--paper-hi);border-radius:12px;border:1px solid var(--line-soft)}
+.quotes cite{display:block;font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-faint);margin-top:8px}
+@media (max-width:700px){.quotes{grid-template-columns:1fr}}
+.tips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.tips div{border-top:2px solid var(--rust);padding-top:10px;min-width:0}
+.tips b{display:block;font-size:14.5px;margin-bottom:3px}
+.tips p{font-size:13.5px;color:var(--ink-soft)}
+@media (max-width:860px){.tips{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.tips{grid-template-columns:1fr}}
+
+/* conexión */
+.oneliner{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:center;background:var(--ink);color:var(--on-ink);border-radius:16px;padding:24px;overflow:hidden}
+.oneliner p{font-family:var(--display);font-size:clamp(21px,2.5vw,27px);line-height:1.22}
+.oneliner .eyebrow{color:#E8B98C;margin-bottom:10px}
+.oneliner img{border-radius:10px;width:100%;aspect-ratio:4/3;object-fit:cover}
+@media (max-width:760px){.oneliner{grid-template-columns:1fr}}
+.bridge{display:grid;grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr);gap:14px;align-items:stretch;margin-top:22px}
+.bridge .side{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--paper-hi);min-width:0}
+.bridge .side.us{border-color:var(--rust)}
+.bridge .side h4{margin:4px 0 6px;font-family:var(--display);font-weight:400;font-size:26px;line-height:1.05}
+.bridge .side p{font-size:13.5px;color:var(--ink-soft)}
+.bridge .flow{display:flex;flex-direction:column;justify-content:center;gap:12px;font-family:var(--mono);font-size:11px;text-align:center;color:var(--ink-soft)}
+.bridge .flow div{border-top:2px solid var(--ink);padding-top:4px;position:relative}
+.bridge .flow div.back{border-top-color:var(--rust);color:var(--rust)}
+@media (max-width:760px){.bridge{grid-template-columns:1fr}.bridge .flow{flex-direction:row}.bridge .flow div{flex:1}}
+.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
+.ben{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:16px;border-radius:14px;background:var(--paper-hi);border:1px solid var(--line-soft);min-width:0}
+.ben .ic{width:44px;height:44px;border-radius:12px;background:var(--ink);display:grid;place-items:center}
+.ben .ic svg{width:24px;height:24px;stroke:var(--on-ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ben h4{margin:0 0 8px;font-size:15.5px;font-weight:600;line-height:1.3}
+.ben dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;font-size:13.5px}
+.ben dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+.ben dt.us{color:var(--rust)}
+.ben dd{margin:0}
+@media (max-width:760px){.benefits{grid-template-columns:1fr}}
+.need{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.need b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);margin-right:6px}
+
+/* grupo */
+.why78{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.why78 div{background:var(--paper-hi);border-radius:12px;padding:14px;border:1px solid var(--line-soft);min-width:0}
+.why78 b{display:block;font-family:var(--mono);font-size:22px;font-weight:500;line-height:1.1}
+.why78 span{font-size:13px;color:var(--ink-soft)}
+@media (max-width:860px){.why78{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.opt{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--paper-hi);display:flex;flex-direction:column;gap:10px;min-width:0}
+.opt.rec{border:2px solid var(--rust)}
+.opt .lt{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.opt .lt span{font-family:var(--display);font-size:40px;line-height:1}
+.opt .lt em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--rust);color:var(--on-ink);padding:3px 8px;border-radius:999px}
+.opt h4{margin:0;font-size:16px;font-weight:600;line-height:1.3}
+.opt ul{margin:0;padding-left:18px;font-size:13.5px}
+.opt li+li{margin-top:3px}
+.opt .pro::marker{content:"+  ";color:var(--ink)}
+.opt .con::marker{content:"–  ";color:var(--rust)}
+@media (max-width:900px){.opts{grid-template-columns:1fr}}
+.matrix{margin-top:22px}
+.matrix table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+.matrix th,.matrix td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left}
+.matrix th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.matrix td.c{white-space:nowrap}
+.lv{display:inline-flex;gap:3px;vertical-align:middle;margin-right:6px}
+.lv i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink);display:block}
+.lv i.f{background:var(--ink)}
+.matrix tr.k td{font-weight:600}
+.road{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:28px;position:relative;min-width:760px}
+.road::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.road div{position:relative;padding-right:12px}
+.road i{display:block;width:20px;height:20px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);margin-bottom:10px}
+.road .now i{background:var(--rust);border-color:var(--rust)}
+.road .gate i{background:var(--ink)}
+.road b{display:block;font-family:var(--mono);font-size:12px;font-weight:500}
+.road span{font-size:13px;color:var(--ink-soft);display:block;line-height:1.35}
+.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 28px;margin-top:22px;padding:0;list-style:none}
+.checklist li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:8px;font-size:14px;padding:8px 0;border-top:1px solid var(--line-soft)}
+.checklist li::before{content:"";width:14px;height:14px;border:1.5px solid var(--ink);border-radius:3px;margin-top:3px}
+@media (max-width:700px){.checklist{grid-template-columns:1fr}}
+
+/* para hoy */
+.today{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:36px;align-items:start}
+@media (max-width:860px){.today{grid-template-columns:1fr}}
+.goals{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.goals li{background:var(--ink);color:var(--on-ink);border-radius:12px;padding:14px 16px;font-size:15px}
+.goals li b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#E8B98C;font-weight:500;margin-bottom:3px}
+.qs{counter-reset:q;list-style:none;margin:0;padding:0;display:grid;gap:0}
+.qs li{counter-increment:q;display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;padding:13px 0;border-top:1px solid var(--line)}
+.qs li::before{content:counter(q,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--rust);padding-top:3px}
+.qs b{display:block;font-size:15px;font-weight:600;line-height:1.35}
+.qs span{font-size:13.5px;color:var(--ink-soft)}
+.note{margin-top:22px;border:1.5px dashed var(--rust);border-radius:12px;padding:14px 16px;font-size:13.5px;background:var(--rust-wash)}
+.note b{color:var(--rust)}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:56px}
+.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+@media (max-width:600px){.strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* fuentes */
+.src{columns:2;column-gap:36px;font-size:13px;padding-left:18px;margin:0}
+.src li{break-inside:avoid;margin-bottom:6px;color:var(--ink-soft)}
+@media (max-width:700px){.src{columns:1}}
+footer{padding-block:40px 56px;color:var(--ink-faint);font-family:var(--mono);font-size:11.5px}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <span><b>Dossier de preparación</b> · Reunión con Fundación El Sauce · miércoles 11 de noviembre de 2026</span>
+  <span>Raúl Rubilar · <b>La ciudad de los niños</b> · con Luis Valenzuela (CIT-UAI)</span>
+</div></div>
+
+<nav class="nav" aria-label="Secciones"><div class="wrap"><ul>
+  <li><a href="#resumen">Resumen</a></li>
+  <li><a href="#historia">Historia</a></li>
+  <li><a href="#modelo">Cómo trabajan</a></li>
+  <li><a href="#equipo">Equipo</a></li>
+  <li><a href="#territorio">Territorio</a></li>
+  <li><a href="#proyectos">5 proyectos</a></li>
+  <li><a href="#alejandra">Alejandra</a></li>
+  <li><a class="us" href="#conexion">Conexión</a></li>
+  <li><a class="us" href="#grupo">El grupo</a></li>
+  <li><a class="us" href="#hoy">Para hoy</a></li>
+  <li><a href="#fuentes">Fuentes</a></li>
+</ul></div></nav>
+
+<header class="hero">
+  <img src="img/hero-2.jpg" alt="Niñas y niños de uniforme posan en fila sobre el pasto, saludando a la cámara">
+  <span class="credit cap">Foto: Fundación El Sauce</span>
+  <div class="over"><div class="wrap">
+    <div class="eyebrow">Fundación familiar · Lo Espejo · desde 2021</div>
+    <h1>Fundación El Sauce</h1>
+    <p class="lede">Impulsa el bienestar territorial de Lo Espejo sin ejecutar sola: financia, articula y sostiene a 17 aliados que trabajan en educación y espacios públicos.</p>
+  </div></div>
+</header>
+
+<div class="kpis">
+  <div class="kpi"><div class="n">2021</div><div class="l">año de creación, por la familia Izquierdo Etchebarne</div></div>
+  <div class="kpi"><div class="n">3</div><div class="l">personas en el equipo ejecutivo</div></div>
+  <div class="kpi"><div class="n">17</div><div class="l">socios y aliados que ejecutan con ellos</div></div>
+  <div class="kpi"><div class="n">14</div><div class="l">iniciativas en ejecución en 2026</div></div>
+  <div class="kpi"><div class="n">2.743</div><div class="l">beneficiarios 2024–2025</div></div>
+  <div class="kpi us"><div class="n">16<small>/108</small></div><div class="l">programas del Mapa de Oportunidades llegan vía El Sauce</div></div>
+</div>
+
+<main>
+<!-- RESUMEN -->
+<section id="resumen"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Resumen</div><h2>En 30 segundos</h2></div>
+    <p class="intro">Lo mínimo para entrar a la reunión. Todo lo demás de esta página amplía estas cinco ideas.</p>
+  </div>
+  <div class="five">
+    <div><h4>Quiénes</h4><p>La fundación de la familia Izquierdo Etchebarne, la misma que abrió el Colegio San Lucas en 2008 a través de Fundación El Camino.</p></div>
+    <div><h4>Qué hacen</h4><p>Bienestar territorial con dos focos, educación y espacios públicos, y dos habilitadores, redes e incidencia.</p></div>
+    <div><h4>Cómo</h4><p>Filantropía estratégica: diagnostican, suman un aliado especializado, financian, sostienen y transfieren el modelo.</p></div>
+    <div><h4>Dónde</h4><p>Toda la comuna de Lo Espejo, con su centro de gravedad en el Colegio San Lucas, unidad vecinal 37B.</p></div>
+    <div class="us"><h4>Para nosotros</h4><p>Co-construyeron con el CIT el Mapa de Oportunidades y su gran preocupación es mantenerlo vivo. Esa es nuestra puerta de entrada.</p></div>
+  </div>
+</div></section>
+
+<!-- HISTORIA -->
+<section id="historia"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Historia</div><h2>De un colegio a toda la comuna</h2></div>
+    <p class="intro">Diecinueve años de la misma familia en Lo Espejo. 2026 es su año más activo: Mapa, convenios, libro y documental.</p>
+  </div>
+  <div class="scrollx"><div class="tl">
+    <div class="ev key"><div class="y">2007</div><div class="dot"></div><h5>Fundación El Camino</h5><p>La familia la crea para dar educación de calidad en sectores de escasos recursos.</p></div>
+    <div class="ev key"><div class="y">2008</div><div class="dot"></div><h5>Colegio San Lucas</h5><p>Abre en Pedro Lira 9195. Particular subvencionado y gratuito.</p></div>
+    <div class="ev key"><div class="y">2021</div><div class="dot"></div><h5>Nace El Sauce</h5><p>Para los barrios cercanos al colegio. Hoy cubre toda la comuna.</p></div>
+    <div class="ev"><div class="y">ene 2024</div><div class="dot"></div><h5>Llega Alejandra</h5><p>Asume como directora ejecutiva. Parte la alianza con Fútbol Más.</p></div>
+    <div class="ev"><div class="y">mar 2026</div><div class="dot"></div><h5>Directorio San Lucas</h5><p>Alejandra se suma al directorio del colegio.</p></div>
+    <div class="ev key"><div class="y">abr 2026</div><div class="dot"></div><h5>Mapa de Oportunidades</h5><p>Lanzamiento con el CIT-UAI y la Municipalidad.</p></div>
+    <div class="ev"><div class="y">jun 2026</div><div class="dot"></div><h5>Espacio TAN!</h5><p>Convenio con Ciudad del Niño. Columna con la alcaldesa Javiera Reyes contra el estigma.</p></div>
+    <div class="ev"><div class="y">jul 2026</div><div class="dot"></div><h5>Historia de Lo Espejo</h5><p>Libro y documental con la Universidad de Chile.</p></div>
+    <div class="ev us"><div class="y">11 nov 2026</div><div class="dot"></div><h5>Hoy</h5><p>Reunión con La ciudad de los niños, junto a LV.</p></div>
+  </div></div>
+</div></section>
+
+<!-- MODELO -->
+<section id="modelo"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Cómo trabajan</div><h2>Bienestar territorial, con otros</h2></div>
+    <p class="intro">Su rol, en sus palabras, es «impulsar el protagonismo de las comunidades, no reemplazarlo». No tienen equipos en terreno: ponen recursos, relación con el territorio y método.</p>
+  </div>
+  <div class="model">
+    <div>
+      <blockquote class="quote" style="margin:0">«El bienestar territorial es cómo se vive en un barrio: el estado de la calidad de vida de un territorio, que depende de las condiciones y oportunidades que ofrece, y de la capacidad de la comunidad para incidir en su propio desarrollo.»<cite>FUNDACIÓN EL SAUCE · NUESTRO MODELO</cite></blockquote>
+      <div class="house" role="img" aria-label="Dos focos estratégicos, Educación y Espacios públicos, sostenidos por dos habilitadores, Redes e Incidencia">
+        <div class="lbl"><span>Focos estratégicos</span></div>
+        <div class="foco"><b>Educación</b><p>Acceso a educación y espacios de aprendizaje de calidad para niños, niñas y adolescentes.</p></div>
+        <div class="foco"><b>Espacios públicos</b><p>Plazas, parques, calles, multicanchas y espacios compartidos para la vida comunitaria.</p></div>
+        <div class="base">
+          <div class="hab"><b>Redes</b><p>Vínculo, confianza y capacidades para sostener el cambio.</p></div>
+          <div class="hab"><b>Incidencia</b><p>Aprendizajes que permiten replicar, escalar e influir en política pública.</p></div>
+        </div>
+        <div class="lbl"><span>Habilitadores</span></div>
+      </div>
+    </div>
+    <figure class="cycle">
+      <svg viewBox="0 0 480 310" role="img" aria-labelledby="cyT">
+        <title id="cyT">Ciclo de trabajo: diagnosticar, sumar aliados, implementar, sostener, transferir</title>
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F3B2C"/></marker></defs>
+        <path class="arc" marker-end="url(#ah)" d="M246.6,58.3 A110,110 0 0 1 313.3,106.7"/>
+        <path class="arc" marker-end="url(#ah)" d="M329.7,157.3 A110,110 0 0 1 304.3,235.7"/>
+        <path class="arc" marker-end="url(#ah)" d="M261.2,267.0 A110,110 0 0 1 178.8,267.0"/>
+        <path class="arc" marker-end="url(#ah)" d="M135.7,235.7 A110,110 0 0 1 110.3,157.3"/>
+        <path class="arc" marker-end="url(#ah)" d="M126.7,106.7 A110,110 0 0 1 193.4,58.3"/>
+        <circle class="node" cx="220" cy="55" r="13"/><text class="nn" x="220" y="55">1</text>
+        <circle class="node" cx="324.6" cy="131" r="13"/><text class="nn" x="324.6" y="131">2</text>
+        <circle class="node" cx="284.7" cy="254" r="13"/><text class="nn" x="284.7" y="254">3</text>
+        <circle class="node" cx="155.3" cy="254" r="13"/><text class="nn" x="155.3" y="254">4</text>
+        <circle class="node" cx="115.4" cy="131" r="13"/><text class="nn" x="115.4" y="131">5</text>
+        <text class="lab" x="220" y="24" text-anchor="middle">Diagnosticar</text>
+        <text class="lab" x="344" y="128">Sumar aliados</text>
+        <text class="sub" x="344" y="145">el que sabe, ejecuta</text>
+        <text class="lab" x="300" y="292" text-anchor="middle">Implementar</text>
+        <text class="lab" x="140" y="292" text-anchor="middle">Sostener</text>
+        <text class="lab" x="96" y="128" text-anchor="end">Transferir</text>
+        <text class="sub" x="96" y="145" text-anchor="end">a otros territorios</text>
+        <text class="center" x="220" y="160">un ciclo</text>
+        <text class="center" x="220" y="184">replicable</text>
+      </svg>
+      <figcaption style="text-align:center">Lo Espejo es su laboratorio: ahí prueban y validan el modelo para llevarlo a otros territorios.</figcaption>
+    </figure>
+  </div>
+  <div class="values">
+    <div><b>Protagonismo territorial</b><p>Las comunidades lideran el cambio. La fundación impulsa, no reemplaza.</p></div>
+    <div><b>Colaboración para el impacto</b><p>Escucha, respeto y dignidad. Alianzas basadas en la confianza.</p></div>
+    <div><b>Cultura de excelencia</b><p>Evalúan y ajustan siempre. Escalan lo que aprenden.</p></div>
+    <div><b>Inversión estratégica</b><p>Criterio territorial y largo plazo. Filantropía como responsabilidad.</p></div>
+  </div>
+
+  <div class="net" aria-label="Red de 17 socios y aliados agrupados por rol">
+    <div class="grp"><h5>Educación y trayectoria escolar <span>· 8</span></h5><div class="chips">
+      <span class="chip">Fundación Portas</span><span class="chip">Fundación Puente</span><span class="chip">Formando Chile</span><span class="chip">Fundación Encuentro</span><span class="chip">daleProfe</span><span class="chip">Acompañando Pasos</span><span class="chip">Familias Primero</span><span class="chip">Ciudad del Niño</span></div></div>
+    <div class="hub"><b>El Sauce</b><div class="big">17</div><p>aliados. El Sauce financia y articula; el aliado especializado ejecuta. Programa Barrio lo implementa Fútbol Más; Espacio TAN!, Ciudad del Niño.</p></div>
+    <div class="grp"><h5>Deporte y barrio <span>· 3</span></h5><div class="chips"><span class="chip">Fútbol Más</span><span class="chip">Deporte Libre</span><span class="chip">Junto al Barrio</span></div></div>
+    <div class="grp"><h5>Academia <span>· 2</span></h5><div class="chips"><span class="chip k">UAI · CIT</span><span class="chip">U. de Chile · Filosofía y Humanidades</span></div></div>
+    <div class="grp"><h5>Sector público <span>· 1</span></h5><div class="chips"><span class="chip">Municipalidad de Lo Espejo</span></div></div>
+    <div class="grp wide"><h5>Metodología y prevención <span>· 3</span></h5><div class="chips"><span class="chip">Artefactos Metodológicos</span><span class="chip">Lambda Efecto Multiplicador</span><span class="chip">Fundación San Carlos de Maipo</span></div></div>
+  </div>
+
+  <div class="duo">
+    <div class="panel">
+      <h4>Quién trae los programas del Mapa de Oportunidades</h4>
+      <p class="sub">108 programas confirmados para NNA en Lo Espejo, según organización de origen</p>
+      <div class="bars" role="img" aria-label="Municipalidad 68, Fundación El Sauce 16, Ministerio de Desarrollo Social 9, Atención primaria de salud 5, Mineduc 4, otros 6">
+        <div class="bar"><span class="k">Municipalidad</span><span class="t"><i style="width:100%"></i></span><span class="v">68</span></div>
+        <div class="bar us"><span class="k">Fundación El Sauce</span><span class="t"><i style="width:23.5%"></i></span><span class="v">16</span></div>
+        <div class="bar"><span class="k">Desarrollo Social</span><span class="t"><i style="width:13.2%"></i></span><span class="v">9</span></div>
+        <div class="bar"><span class="k">Salud primaria</span><span class="t"><i style="width:7.4%"></i></span><span class="v">5</span></div>
+        <div class="bar"><span class="k">Mineduc</span><span class="t"><i style="width:5.9%"></i></span><span class="v">4</span></div>
+        <div class="bar"><span class="k">Otros</span><span class="t"><i style="width:8.8%"></i></span><span class="v">6</span></div>
+      </div>
+      <p class="cap" style="margin-top:10px">Capa Programas_Lo_Espejo_NNA_vista (CIT-UAI), snapshot 28 sep 2026. El Sauce: 15 propios + 1 con F. Encuentro. Además edita la capa con su propia cuenta.</p>
+    </div>
+    <div class="panel">
+      <h4>Los 16 programas de El Sauce en el Mapa, por tipo</h4>
+      <p class="sub">Su cartera es sobre todo educativa, desde kínder hasta la universidad</p>
+      <div class="bars" role="img" aria-label="Educación, formación y becas 11, Deporte y recreación 3, Espacios públicos 1, Desarrollo personal 1">
+        <div class="bar us"><span class="k">Educación y becas</span><span class="t"><i style="width:100%"></i></span><span class="v">11</span></div>
+        <div class="bar"><span class="k">Deporte (3 sedes)</span><span class="t"><i style="width:27.3%"></i></span><span class="v">3</span></div>
+        <div class="bar"><span class="k">Espacios públicos</span><span class="t"><i style="width:9.1%"></i></span><span class="v">1</span></div>
+        <div class="bar"><span class="k">Desarrollo personal</span><span class="t"><i style="width:9.1%"></i></span><span class="v">1</span></div>
+      </div>
+      <p class="cap" style="margin-top:10px">Misma fuente. Deporte = Programa Barrio en tres sedes.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- EQUIPO -->
+<section id="equipo"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Equipo</div><h2>Cuántas personas son</h2></div>
+    <p class="intro">Una estructura liviana: un directorio familiar, tres profesionales y una red grande. La ejecución en terreno la hacen los aliados.</p>
+  </div>
+  <div class="org">
+    <div class="tier"><div class="k"><b>7</b>Directorio</div>
+      <div class="board">
+        <span>Ester Etchebarne J.<em>honoraria</em></span><span>Fernando Izquierdo M.<em>honorario</em></span><span>M. de los Ángeles Izquierdo E.<em>directora</em></span><span>Fernando Izquierdo E.<em>director</em></span><span>Francisco Izquierdo E.<em>director</em></span><span>Cristián Izquierdo E.<em>director</em></span><span>Agustín Izquierdo E.<em>director</em></span>
+      </div></div>
+    <div class="tier us"><div class="k"><b>3</b>Equipo ejecutivo</div>
+      <div class="team">
+        <div class="person lead"><img src="img/ale.jpg" alt="Retrato de Alejandra Fuenzalida"><div><b>Alejandra Fuenzalida S.</b><span>Directora ejecutiva · con quien nos reunimos</span></div></div>
+        <div class="person"><img src="img/camilo.jpg" alt="Retrato de Camilo Pérez"><div><b>Camilo Pérez C.</b><span>Director social · probable contraparte territorial</span></div></div>
+        <div class="person"><img src="img/pame.jpg" alt="Retrato de Pamela Ceballos"><div><b>Pamela Ceballos E.</b><span>Coordinadora de educación · probable contraparte con colegios</span></div></div>
+      </div></div>
+    <div class="tier"><div class="k"><b>17</b>Aliados</div><p class="muted">Organizaciones que ejecutan los programas: ver la red arriba.</p></div>
+    <div class="tier"><div class="k"><b>2.743</b>Beneficiarios 24–25</div>
+      <div><div class="dots" role="img" aria-label="110 puntos, cada uno equivale a 25 personas beneficiarias; 3 destacados representan al equipo">
+      <i class="h"></i><i class="h"></i><i class="h"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div><p class="cap" style="margin-top:8px">1 punto = 25 personas. Los 3 en óxido: el tamaño del equipo, para dar escala.</p></div></div>
+  </div>
+</div></section>
+
+<!-- TERRITORIO -->
+<section id="territorio"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Territorio</div><h2>Dónde trabajan</h2></div>
+    <p class="intro">Sus programas se concentran en el sur-poniente, alrededor del Colegio San Lucas, y llegan al norte con Programa Barrio. La UV 37B, la del colegio, es también la que tiene más niños y más oferta.</p>
+  </div>
+  <div class="terr">
+    <figure class="mapbox">
+      <svg class="map" viewBox="0 0 560 698" role="img" aria-labelledby="mapT mapD">
+<title id="mapT">Lo Espejo por unidad vecinal</title><desc id="mapD">Las 15 unidades vecinales de Lo Espejo sombreadas por cantidad de niñas, niños y adolescentes de 8 a 17 años; puntos con los lugares de programas de Fundación El Sauce y el Colegio San Lucas.</desc>
+<path class="uv s1" d="M338.4,91.8 L344.2,94.5 L344.4,94.6 L343.5,99.5 L343.3,100.9 L342.8,103.3 L342.1,107.2 L341.6,109.6 L341.3,111.1 L340.7,113.7 L339.7,120.0 L338.6,126.3 L337.0,133.2 L336.2,136.8 L321.5,130.3 L318.8,129.2 L315.2,127.8 L299.4,121.1 L278.4,112.2 L278.1,112.1 L280.9,105.4 L283.4,99.4 L285.8,93.5 L288.2,87.5 L290.6,81.6 L292.1,78.2 L298.1,63.1 L318.0,71.2 L337.0,79.0 L339.4,80.0 L336.4,86.6 L334.9,90.2 L338.4,91.8Z"><title>UV 28: 294 NNA de 8 a 17 años · 1 lugares con talleres</title></path>
+<path class="uv s2" d="M274.0,487.4 L278.1,489.6 L280.7,490.9 L296.5,499.4 L303.4,503.2 L310.3,507.3 L321.5,514.4 L329.3,519.0 L335.9,523.0 L336.8,523.8 L349.0,531.2 L366.5,541.6 L373.8,545.8 L388.6,552.4 L387.6,554.7 L379.7,572.2 L374.5,584.0 L367.7,599.2 L349.2,640.5 L346.4,646.7 L345.3,649.1 L333.6,675.1 L329.7,684.2 L309.9,675.2 L293.0,667.9 L276.3,660.4 L250.4,649.0 L232.9,641.4 L229.9,640.1 L212.6,632.5 L197.9,626.1 L188.8,622.1 L177.6,617.2 L159.7,609.3 L150.4,605.0 L142.7,601.5 L133.9,597.5 L123.6,592.9 L117.6,590.2 L106.2,585.2 L95.0,580.1 L93.9,579.7 L100.5,564.8 L102.5,560.2 L102.9,559.4 L104.7,555.3 L105.3,554.0 L107.1,550.5 L110.2,543.8 L113.4,536.6 L116.4,529.7 L118.9,524.2 L121.0,519.6 L125.9,509.5 L129.0,502.5 L131.9,496.0 L134.9,489.1 L137.6,482.6 L140.8,475.7 L144.2,468.0 L146.9,461.1 L154.0,444.9 L162.1,432.6 L161.7,432.3 L166.0,426.3 L166.6,426.8 L174.9,433.0 L180.2,436.6 L186.4,440.4 L192.1,443.8 L199.6,447.8 L204.3,450.3 L222.5,460.2 L240.2,469.8 L244.7,471.6 L259.9,480.1 L269.3,485.0 L274.0,487.4Z"><title>UV 37A: 676 NNA de 8 a 17 años · 2 lugares con talleres</title></path>
+<path class="uv s4" d="M175.7,329.7 L192.7,340.4 L204.4,347.2 L211.8,351.4 L219.2,355.7 L220.2,356.3 L221.1,356.8 L227.1,360.4 L234.8,364.9 L239.3,367.8 L242.3,369.8 L245.2,372.0 L249.7,375.4 L258.1,382.1 L274.4,387.0 L291.9,391.3 L291.7,392.2 L291.2,394.8 L286.4,422.1 L283.9,436.6 L280.1,458.1 L278.6,466.0 L277.1,474.8 L275.2,484.5 L274.0,487.4 L269.3,485.0 L259.9,480.1 L244.7,471.6 L240.2,469.8 L222.5,460.2 L204.3,450.3 L199.6,447.8 L192.1,443.8 L186.4,440.4 L180.2,436.6 L174.9,433.0 L166.6,426.8 L166.0,426.3 L160.2,421.2 L149.8,411.1 L136.7,398.3 L124.5,386.0 L118.2,379.5 L114.3,375.6 L106.8,368.5 L101.9,363.7 L97.0,359.1 L94.1,356.6 L90.4,353.6 L86.6,351.2 L83.3,349.2 L79.4,347.2 L77.1,346.2 L74.9,345.2 L67.0,341.7 L66.1,341.3 L52.2,335.0 L56.7,322.4 L63.2,305.6 L71.1,285.0 L75.1,274.9 L76.1,272.1 L90.2,280.6 L92.5,281.9 L105.4,289.5 L115.8,295.6 L123.5,300.1 L131.0,304.5 L131.9,305.0 L132.8,305.5 L139.0,309.0 L147.2,313.8 L163.6,323.4 L175.7,329.7Z"><title>UV 37C: 1389 NNA de 8 a 17 años · 6 lugares con talleres</title></path>
+<path class="uv s2" d="M298.6,264.2 L295.9,271.8 L292.6,279.0 L289.6,286.4 L287.2,292.2 L286.6,293.8 L283.7,301.0 L280.6,308.4 L277.2,316.2 L274.2,323.2 L271.2,330.5 L268.1,338.0 L264.0,347.8 L262.2,351.6 L253.3,372.3 L252.3,374.5 L250.9,376.3 L249.7,375.4 L245.2,372.0 L242.3,369.8 L239.3,367.8 L234.8,364.9 L227.1,360.4 L221.1,356.8 L220.2,356.3 L219.2,355.7 L211.8,351.4 L204.4,347.2 L192.7,340.4 L175.7,329.7 L179.3,321.1 L180.2,318.7 L182.1,314.0 L182.9,311.9 L185.2,306.3 L186.2,303.9 L188.3,299.0 L189.4,296.5 L191.6,290.9 L194.2,284.4 L194.9,282.4 L197.5,276.8 L198.5,274.5 L200.4,269.6 L201.1,267.5 L204.4,259.9 L207.4,252.8 L210.4,245.6 L213.4,238.2 L216.6,229.6 L227.4,234.3 L235.7,237.7 L244.1,241.1 L248.8,243.1 L252.3,244.5 L260.8,248.1 L265.4,250.0 L268.7,251.4 L273.9,253.6 L281.8,256.8 L289.9,260.2 L298.6,264.2Z"><title>UV 31: 841 NNA de 8 a 17 años · 2 lugares con talleres</title></path>
+<path class="uv s2" d="M154.2,203.4 L132.3,194.5 L124.7,191.1 L109.9,184.4 L110.6,182.7 L126.1,143.9 L135.5,120.6 L142.2,104.1 L145.6,95.9 L153.3,77.4 L159.4,62.6 L159.7,62.0 L174.4,68.8 L214.6,86.0 L219.6,88.0 L220.1,88.2 L228.9,92.0 L237.4,95.3 L240.4,96.5 L248.5,100.0 L258.0,103.8 L262.5,105.7 L267.2,107.7 L265.5,111.3 L263.6,115.7 L260.4,123.1 L257.4,130.3 L256.8,131.7 L254.7,137.3 L253.9,139.1 L250.8,146.5 L247.6,154.1 L244.7,161.3 L241.7,168.6 L238.6,176.1 L235.6,183.4 L232.6,190.9 L229.5,198.5 L226.7,205.7 L223.7,213.1 L220.5,220.5 L216.6,229.6 L187.3,216.9 L178.8,213.5 L170.7,210.1 L165.2,207.8 L162.4,206.6 L154.2,203.4Z"><title>UV 35: 764 NNA de 8 a 17 años · 2 lugares con talleres</title></path>
+<path class="uv s3" d="M477.3,137.2 L479.4,138.2 L484.2,140.8 L485.6,141.5 L504.9,151.6 L511.8,155.0 L520.9,159.9 L527.4,163.2 L530.0,164.6 L546.0,172.0 L545.5,173.2 L541.2,184.1 L535.0,198.9 L531.7,207.1 L525.0,223.9 L521.9,231.5 L518.9,239.0 L518.7,239.5 L515.2,248.6 L514.9,249.4 L500.3,242.2 L499.2,241.7 L494.5,239.1 L490.0,237.0 L489.5,236.7 L482.4,233.2 L480.8,232.4 L477.1,230.5 L458.0,221.1 L451.3,217.8 L448.3,216.4 L444.9,214.8 L439.5,212.1 L435.2,210.1 L433.3,209.0 L427.0,205.9 L424.4,204.7 L420.6,202.7 L417.5,201.0 L414.9,199.8 L409.1,196.9 L402.0,193.3 L397.3,190.9 L396.1,190.4 L390.3,187.3 L387.8,186.1 L384.7,184.4 L377.6,181.0 L359.6,171.8 L352.3,168.2 L349.6,166.9 L345.9,164.9 L343.7,163.9 L342.6,163.3 L345.1,155.0 L346.9,149.4 L348.9,142.9 L349.6,139.0 L350.2,135.5 L350.5,133.5 L351.1,131.6 L355.0,122.0 L355.6,120.7 L359.0,113.0 L360.0,110.8 L361.8,106.4 L367.9,91.2 L380.8,97.9 L388.3,101.8 L395.0,105.4 L402.1,109.0 L413.3,115.1 L423.4,120.4 L433.4,125.5 L437.1,127.2 L440.3,127.8 L458.3,128.6 L461.2,129.1 L463.5,130.0 L465.6,131.1 L477.3,137.2Z"><title>UV 24: 1182 NNA de 8 a 17 años · 2 lugares con talleres</title></path>
+<path class="uv s3" d="M460.8,323.5 L463.3,324.3 L467.1,325.7 L482.3,331.3 L482.0,332.2 L473.1,353.9 L469.9,362.1 L469.4,363.5 L462.1,381.5 L454.1,401.1 L446.1,420.8 L441.4,432.8 L432.2,454.9 L424.1,473.6 L419.5,483.7 L414.0,495.8 L406.4,512.9 L398.7,529.8 L388.7,552.3 L388.6,552.4 L373.8,545.8 L366.5,541.6 L349.0,531.2 L336.8,523.8 L335.9,523.0 L329.3,519.0 L321.5,514.4 L310.3,507.3 L303.4,503.2 L296.5,499.4 L280.7,490.9 L278.1,489.6 L274.0,487.4 L275.2,484.5 L277.1,474.8 L278.6,466.0 L280.1,458.1 L283.9,436.6 L286.4,422.1 L291.2,394.8 L291.7,392.2 L291.9,391.3 L293.6,381.9 L298.5,354.3 L300.7,342.0 L304.5,321.1 L304.9,318.2 L308.5,297.8 L310.3,287.0 L313.7,287.3 L316.5,287.5 L317.6,282.1 L319.5,271.6 L322.4,272.5 L325.5,273.6 L334.1,276.7 L336.5,277.6 L352.8,283.7 L356.2,285.0 L373.1,291.1 L376.4,292.4 L382.3,294.7 L384.2,295.4 L391.5,298.0 L402.4,302.1 L418.7,308.1 L421.9,309.3 L432.4,313.5 L442.0,316.7 L447.6,318.7 L460.8,323.5Z"><title>UV 26: 1260 NNA de 8 a 17 años · 3 lugares con talleres</title></path>
+<path class="uv s1" d="M342.6,163.3 L343.7,163.9 L345.9,164.9 L349.6,166.9 L352.3,168.2 L359.6,171.8 L377.6,181.0 L384.7,184.4 L387.8,186.1 L390.3,187.3 L396.1,190.4 L397.3,190.9 L402.0,193.3 L409.1,196.9 L414.9,199.8 L417.5,201.0 L420.6,202.7 L424.4,204.7 L427.0,205.9 L433.3,209.0 L435.2,210.1 L439.5,212.1 L444.9,214.8 L448.3,216.4 L451.3,217.8 L458.0,221.1 L477.1,230.5 L480.8,232.4 L482.4,233.2 L489.5,236.7 L490.0,237.0 L494.5,239.1 L499.2,241.7 L500.3,242.2 L514.9,249.4 L512.9,254.6 L506.0,272.0 L503.0,279.7 L499.9,287.6 L494.8,300.1 L491.5,308.6 L482.3,331.3 L467.1,325.7 L463.3,324.3 L460.8,323.5 L447.6,318.7 L442.0,316.7 L432.4,313.5 L421.9,309.3 L418.7,308.1 L402.4,302.1 L391.5,298.0 L384.2,295.4 L382.3,294.7 L376.4,292.4 L373.1,291.1 L356.2,285.0 L352.8,283.7 L336.5,277.6 L334.1,276.7 L325.5,273.6 L322.4,272.5 L319.5,271.6 L317.6,282.1 L316.5,287.5 L313.7,287.3 L310.3,287.0 L310.9,283.1 L312.8,271.6 L313.2,268.4 L318.0,240.0 L318.2,238.6 L316.7,237.3 L312.1,235.0 L311.3,234.6 L315.2,225.2 L319.2,216.2 L320.7,212.6 L322.4,208.6 L322.8,207.0 L323.4,204.7 L324.2,200.9 L325.7,192.7 L327.2,184.6 L328.6,176.5 L329.1,172.7 L329.8,168.6 L331.2,161.1 L341.7,165.7 L341.8,165.3 L342.6,163.3Z"><title>UV 25: 579 NNA de 8 a 17 años · 4 lugares con talleres</title></path>
+<path class="uv s2" d="M154.2,203.4 L162.4,206.6 L165.2,207.8 L170.7,210.1 L178.8,213.5 L187.3,216.9 L216.6,229.6 L213.4,238.2 L210.4,245.6 L207.4,252.8 L204.4,259.9 L201.1,267.5 L200.4,269.6 L198.5,274.5 L197.5,276.8 L194.9,282.4 L194.2,284.4 L191.6,290.9 L189.4,296.5 L188.3,299.0 L186.2,303.9 L185.2,306.3 L182.9,311.9 L182.1,314.0 L180.2,318.7 L179.3,321.1 L175.7,329.7 L163.6,323.4 L147.2,313.8 L139.0,309.0 L132.8,305.5 L131.9,305.0 L131.0,304.5 L123.5,300.1 L115.8,295.6 L105.4,289.5 L92.5,281.9 L90.2,280.6 L76.1,272.1 L80.4,261.0 L84.2,251.1 L88.6,239.7 L99.8,210.6 L105.7,195.3 L109.9,184.4 L124.7,191.1 L132.3,194.5 L154.2,203.4Z"><title>UV 36: 893 NNA de 8 a 17 años · 1 lugares con talleres</title></path>
+<path class="uv s0" d="M310.3,287.0 L308.5,297.8 L304.9,318.2 L304.5,321.1 L300.7,342.0 L298.5,354.3 L293.6,381.9 L291.9,391.3 L274.4,387.0 L258.1,382.1 L249.7,375.4 L250.9,376.3 L252.3,374.5 L253.3,372.3 L262.2,351.6 L264.0,347.8 L268.1,338.0 L271.2,330.5 L274.2,323.2 L277.2,316.2 L280.6,308.4 L283.7,301.0 L286.6,293.8 L287.2,292.2 L289.6,286.4 L292.6,279.0 L295.9,271.8 L298.6,264.2 L299.7,261.7 L311.3,234.6 L312.1,235.0 L316.7,237.3 L318.2,238.6 L318.0,240.0 L313.2,268.4 L312.8,271.6 L310.9,283.1 L310.3,287.0Z"><title>UV 30: 150 NNA de 8 a 17 años · 0 lugares con talleres</title></path>
+<path class="uv s2" d="M278.1,112.1 L278.4,112.2 L299.4,121.1 L315.2,127.8 L318.8,129.2 L321.5,130.3 L336.2,136.8 L334.3,144.5 L332.8,152.5 L331.3,160.6 L331.2,161.1 L329.8,168.6 L329.1,172.7 L328.6,176.5 L327.2,184.6 L325.7,192.7 L324.2,200.9 L323.4,204.7 L322.8,207.0 L322.4,208.6 L320.7,212.6 L319.2,216.2 L315.2,225.2 L311.3,234.6 L299.7,261.7 L298.6,264.2 L289.9,260.2 L281.8,256.8 L273.9,253.6 L268.7,251.4 L265.4,250.0 L260.8,248.1 L252.3,244.5 L248.8,243.1 L244.1,241.1 L235.7,237.7 L227.4,234.3 L216.6,229.6 L220.5,220.5 L223.7,213.1 L226.7,205.7 L229.5,198.5 L232.6,190.9 L235.6,183.4 L238.6,176.1 L241.7,168.6 L244.7,161.3 L247.6,154.1 L250.8,146.5 L253.9,139.1 L254.7,137.3 L256.8,131.7 L257.4,130.3 L260.4,123.1 L263.6,115.7 L265.5,111.3 L267.2,107.7 L278.1,112.1Z"><title>UV 29: 897 NNA de 8 a 17 años · 2 lugares con talleres</title></path>
+<path class="uv s0" d="M248.9,42.6 L243.1,57.7 L241.6,61.7 L239.3,67.1 L238.6,68.9 L238.0,70.3 L235.6,76.3 L232.4,83.7 L230.3,88.8 L228.9,92.0 L220.1,88.2 L219.6,88.0 L214.6,86.0 L174.4,68.8 L159.7,62.0 L167.3,43.5 L170.7,35.4 L172.4,31.3 L172.9,30.0 L179.6,14.0 L191.5,18.9 L198.0,21.4 L217.2,29.4 L242.9,40.1 L248.9,42.6Z"><title>UV 34: 193 NNA de 8 a 17 años · 2 lugares con talleres</title></path>
+<path class="uv s0" d="M241.6,61.7 L243.1,57.7 L248.9,42.6 L249.0,42.6 L258.0,46.2 L266.4,49.8 L276.2,54.1 L290.3,59.8 L298.1,63.1 L292.1,78.2 L290.6,81.6 L288.2,87.5 L285.8,93.5 L283.4,99.4 L280.9,105.4 L278.1,112.1 L267.2,107.7 L262.5,105.7 L258.0,103.8 L248.5,100.0 L240.4,96.5 L237.4,95.3 L228.9,92.0 L230.3,88.8 L232.4,83.7 L235.6,76.3 L238.0,70.3 L238.6,68.9 L239.3,67.1 L241.6,61.7Z"><title>UV 32: 105 NNA de 8 a 17 años · 1 lugares con talleres</title></path>
+<path class="uv s0" d="M367.9,91.2 L361.8,106.4 L360.0,110.8 L359.0,113.0 L355.6,120.7 L355.0,122.0 L351.1,131.6 L350.5,133.5 L350.2,135.5 L349.6,139.0 L348.9,142.9 L346.9,149.4 L345.1,155.0 L342.6,163.3 L341.8,165.3 L341.7,165.7 L331.2,161.1 L331.3,160.6 L332.8,152.5 L334.3,144.5 L336.2,136.8 L337.0,133.2 L338.6,126.3 L339.7,120.0 L340.7,113.7 L341.3,111.1 L341.6,109.6 L342.1,107.2 L342.8,103.3 L343.3,100.9 L343.5,99.5 L344.4,94.6 L344.2,94.5 L338.4,91.8 L334.9,90.2 L336.4,86.6 L339.4,80.0 L343.8,81.8 L346.0,82.3 L349.3,83.1 L351.5,83.6 L355.4,85.0 L360.3,87.3 L364.7,89.4 L367.9,91.2Z"><title>UV 27: 37 NNA de 8 a 17 años · 1 lugares con talleres</title></path>
+<path class="uv s4 focus" d="M166.0,426.3 L161.7,432.3 L162.1,432.6 L154.0,444.9 L146.9,461.1 L144.2,468.0 L140.8,475.7 L137.6,482.6 L134.9,489.1 L131.9,496.0 L129.0,502.5 L125.9,509.5 L121.0,519.6 L118.9,524.2 L116.4,529.7 L113.4,536.6 L110.2,543.8 L107.1,550.5 L105.3,554.0 L104.7,555.3 L102.9,559.4 L102.5,560.2 L100.5,564.8 L93.9,579.7 L90.5,578.2 L82.0,574.5 L69.5,569.6 L37.8,556.1 L27.7,551.4 L20.6,548.0 L14.0,544.9 L15.8,525.4 L16.6,516.4 L17.3,508.4 L17.3,504.7 L17.9,497.9 L18.3,489.9 L18.8,479.2 L18.9,475.4 L19.2,468.6 L19.5,460.2 L19.9,450.4 L20.5,444.6 L22.1,427.8 L24.4,414.9 L26.0,409.7 L27.9,403.9 L29.0,400.3 L34.3,385.3 L41.7,364.3 L49.6,342.3 L52.2,335.0 L66.1,341.3 L67.0,341.7 L74.9,345.2 L77.1,346.2 L79.4,347.2 L83.3,349.2 L86.6,351.2 L90.4,353.6 L94.1,356.6 L97.0,359.1 L101.9,363.7 L106.8,368.5 L114.3,375.6 L118.2,379.5 L124.5,386.0 L136.7,398.3 L149.8,411.1 L160.2,421.2 L166.0,426.3Z"><title>UV 37B: 1936 NNA de 8 a 17 años · 9 lugares con talleres</title></path>
+<circle class="sch" cx="233.1" cy="598.7" r="2.6"><title>Escuela Especial Adennun Nº 2</title></circle>
+<circle class="sch" cx="188.5" cy="549.7" r="2.6"><title>El Arca De Los Niños Lo Espejo</title></circle>
+<circle class="sch" cx="139.1" cy="538.3" r="2.6"><title>Escuela Especial Madre Teresa De Calcuta</title></circle>
+<circle class="sch" cx="273.5" cy="393.4" r="2.6"><title>Colegio Educad Lo Espejo</title></circle>
+<circle class="sch" cx="149.0" cy="306.0" r="2.6"><title>Escuela Especial De Educacion</title></circle>
+<circle class="sch" cx="393.9" cy="265.2" r="2.6"><title>Escuela De Parvulos Burbujitas</title></circle>
+<circle class="sch" cx="154.0" cy="240.5" r="2.6"><title>Escuela Especial Luis Sembrador</title></circle>
+<circle class="sch" cx="211.1" cy="128.1" r="2.6"><title>Centro Duc.cardenal Jose Maria Caro</title></circle>
+<circle class="sch" cx="193.7" cy="79.4" r="2.6"><title>Complejo Educ. Adultos Caleta Sur</title></circle>
+<circle class="sch" cx="254.8" cy="69.9" r="2.6"><title>Escuela De Parv. Heidi De Lo Espejo</title></circle>
+<circle class="sch" cx="253.8" cy="61.3" r="2.6"><title>Escuela Esp. El Riel</title></circle>
+<circle class="sch" cx="137.2" cy="588.7" r="2.6"><title>Colegio Particular Kennedy</title></circle>
+<circle class="sch" cx="178.0" cy="584.0" r="2.6"><title>Liceo Teniente Francisco Mery Aguirre</title></circle>
+<circle class="sch" cx="204.5" cy="570.3" r="2.6"><title>Esc. Part.basica Saint Phillip Of Nery 2</title></circle>
+<circle class="sch" cx="85.4" cy="539.4" r="2.6"><title>Escuela Basica Coeducacional</title></circle>
+<circle class="sch" cx="260.5" cy="517.4" r="2.6"><title>Colegio Poliv. Saint Trinity College</title></circle>
+<circle class="sch" cx="150.1" cy="505.6" r="2.6"><title>Colegio Sol De Chile</title></circle>
+<circle class="sch" cx="273.0" cy="394.9" r="2.6"><title>Escuela Basica Republica De Las Filipinas</title></circle>
+<circle class="sch" cx="154.8" cy="372.8" r="2.6"><title>Colegio Hernan Olguin</title></circle>
+<circle class="sch" cx="277.2" cy="342.3" r="2.6"><title>Escuela Basica Salomon Sack</title></circle>
+<circle class="sch" cx="417.9" cy="340.1" r="2.6"><title>Escuela Basica Acapulco</title></circle>
+<circle class="sch" cx="354.3" cy="335.1" r="2.6"><title>Escuela Basica</title></circle>
+<circle class="sch" cx="98.8" cy="316.4" r="2.6"><title>Colegio Lo Espejo</title></circle>
+<circle class="sch" cx="249.2" cy="295.9" r="2.6"><title>Escuela Blue Star College</title></circle>
+<circle class="sch" cx="445.2" cy="263.0" r="2.6"><title>Escuela Basica Clara  Estrella</title></circle>
+<circle class="sch" cx="174.3" cy="247.3" r="2.6"><title>Escuela Basica Las Espigas N° 2404</title></circle>
+<circle class="sch" cx="409.8" cy="245.5" r="2.6"><title>Liceo Politecnico Part.sagrado Corazon</title></circle>
+<circle class="sch" cx="366.5" cy="218.2" r="2.6"><title>Liceo Polivalente</title></circle>
+<circle class="sch" cx="267.2" cy="201.9" r="2.6"><title>Escuela  Raul Saez Saez</title></circle>
+<circle class="sch" cx="489.6" cy="191.7" r="2.6"><title>Colegio Corazones De Jesus</title></circle>
+<circle class="sch" cx="175.4" cy="157.4" r="2.6"><title>Escuela Basica Bernardo O´higgins</title></circle>
+<circle class="sch" cx="427.6" cy="142.3" r="2.6"><title>Escuela Basica Santa Adriana</title></circle>
+<circle class="sch" cx="220.6" cy="100.7" r="2.6"><title>Escuela Bas. Rosa Elvira Matte De Prieto</title></circle>
+<circle class="sch" cx="189.5" cy="80.8" r="2.6"><title>Esc. Part.adventista Buenaventura</title></circle>
+<circle class="sch" cx="364.6" cy="310.5" r="2.6"><title>Escuela Especial Despertar De Lo Espejo</title></circle>
+<circle class="site barrio" cx="432.2" cy="374.3" r="6.5"><title>Programa Barrio · Fútbol Más (Altillo 1595)</title></circle>
+<circle class="site barrio" cx="263.0" cy="186.5" r="6.5"><title>Programa Barrio · Fútbol Más (Nueve Sur con Veracruz)</title></circle>
+<circle class="site barrio" cx="44.0" cy="533.5" r="6.5"><title>Programa Barrio · Fútbol Más (Don Ramón con Don Jaime)</title></circle>
+<circle class="site prog" cx="177.9" cy="585.3" r="6.5"><title>After school · Acompañando Pasos (Centenario 2854)</title></circle>
+<circle class="site prog" cx="42.4" cy="444.3" r="6.5"><title>Mujeres Power · Familias Primero (Don Carlos 3647)</title></circle>
+<circle class="site prog" cx="409.8" cy="245.6" r="6.5"><title>Kinder Power · Familias Primero</title></circle>
+<polygon class="star" points="67.1,411.3 63.9,419.9 54.7,420.3 61.9,426.0 59.5,434.8 67.1,429.8 74.7,434.8 72.3,426.0 79.5,420.3 70.3,419.9"><title>Colegio San Lucas · Pedro Lira 9195 · 5 programas El Sauce + Espacio TAN</title></polygon>
+<text class="uvl" x="313.8" y="100.0">28</text>
+<text class="uvl big" x="240.8" y="559.3">37A</text>
+<text class="uvl dark big" x="180.0" y="380.2">37C</text>
+<text class="uvl big" x="236.7" y="300.1">31</text>
+<text class="uvl big" x="188.1" y="146.0">35</text>
+<text class="uvl dark big" x="444.5" y="169.6">24</text>
+<text class="uvl dark big" x="368.6" y="405.5">26</text>
+<text class="uvl" x="406.6" y="249.9">25</text>
+<text class="uvl big" x="145.9" y="254.7">36</text>
+<text class="uvl" x="288.1" y="328.1">30</text>
+<text class="uvl big" x="280.6" y="186.9">29</text>
+<text class="uvl" x="204.4" y="52.8">34</text>
+<text class="uvl" x="263.6" y="77.4">32</text>
+<text class="uvl" x="347.3" y="117.7">27</text>
+<text class="uvl dark big" x="78.9" y="492.9">37B</text>
+<line class="lead" x1="79.1" y1="418.3" x2="107.1" y2="390.3"/><text class="callout" x="111.1" y="388.3">Colegio San Lucas</text>
+</svg>
+      <div class="legend">
+        <span>NNA de 8 a 17 años por unidad vecinal</span>
+        <span class="ramp" aria-hidden="true"><i style="background:var(--m0)"></i><i style="background:var(--m1)"></i><i style="background:var(--m2)"></i><i style="background:var(--m3)"></i><i style="background:var(--m4)"></i></span>
+        <span class="mono small">&lt;200 → ≥1.300</span>
+      </div>
+      <div class="legend">
+        <span class="sw"><i style="background:var(--rust)"></i>Programa Barrio</span>
+        <span class="sw"><i style="background:var(--rust-hi);opacity:.6;border:1px solid var(--rust)"></i>Otros programas El Sauce</span>
+        <span class="sw"><i style="background:var(--ink);opacity:.45;width:7px;height:7px"></i>Colegios</span>
+        <span class="sw"><span style="color:var(--rust)">★</span>Colegio San Lucas</span>
+      </div>
+      <figcaption style="margin-top:8px">Capas del CIT-UAI (unidades vecinales, colegios, programas) y estimación de NNA con Censo 2024 hecha en Reflejo. Pasa el cursor sobre una UV para ver sus cifras.</figcaption>
+    </figure>
+    <div>
+      <div class="facts">
+        <div class="fact"><div class="n">98.804</div><p>habitantes en Lo Espejo <span>(Censo 2017, la cifra que usa El Sauce)</span></p></div>
+        <div class="fact"><div class="n">≈11.200</div><p>niñas, niños y adolescentes de 8 a 17 años <span>(Censo 2024, estimación propia)</span></p></div>
+        <div class="fact"><div class="n">69%</div><p>de las manzanas con bienestar «bajo» y <b>ninguna</b> «alto» <span>(Matriz de Bienestar Humano Territorial, CIT-UAI)</span></p></div>
+        <div class="fact us"><div class="n">1.936</div><p>NNA en la UV 37B, la más poblada, con <b>9 lugares con talleres</b>, la mayor oferta de la comuna. Ahí está el San Lucas.</p></div>
+        <div class="fact"><div class="n">8 de 16</div><p>programas de El Sauce están en la UV 37B o junto a ella, en la 37A <span>(otros 5 no tienen dirección fija y 3 están en las UV 25, 26 y 29)</span></p></div>
+      </div>
+      <figure style="margin-top:18px"><img src="img/territorio.jpg" alt="Vista panorámica de Lo Espejo con torres de alta tensión y la cordillera al fondo" style="border-radius:12px;width:100%;aspect-ratio:16/9;object-fit:cover"><figcaption style="margin-top:6px">Lo Espejo · foto Fundación El Sauce</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<!-- PROYECTOS -->
+<section id="proyectos"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Proyectos</div><h2>Los 5 más relevantes</h2></div>
+    <p class="intro">Elegidos por escala, por visibilidad pública y por cercanía con nuestro proyecto. El primero es el que hicieron con el CIT.</p>
+  </div>
+  <div class="proj">
+    <article class="card p1">
+      <div class="ph"><img src="img/cit-mapa.jpg" alt="Lanzamiento del Mapa de Oportunidades: público frente a una pantalla con el título del mapa"><span class="tag us">Con el CIT-UAI</span></div>
+      <div class="bd">
+        <div class="who">Con CIT-UAI y Municipalidad de Lo Espejo · lanzado el 20 de abril de 2026</div>
+        <h3>Mapa de Oportunidades de Bienestar para la Niñez</h3>
+        <p>Plataforma que georreferencia los programas, servicios y beneficios para NNA de la comuna. Incluye capacitación, uso piloto y acompañamiento para dejar capacidades instaladas.</p>
+        <div class="stats">
+          <div><b>108</b><span>programas confirmados</span></div>
+          <div><b>8</b><span>categorías</span></div>
+          <div><b>≈3.140</b><span>vistas del visor (sep 2026)</span></div>
+        </div>
+        <p class="q">«El desafío más grande es mantenerlo vivo, mantenerlo activo, mantenerlo actualizado.»</p>
+        <p class="why"><b>Por qué nos importa.</b> Es la base de datos de nuestro proyecto. Hoy es una herramienta para quien planifica; nosotros proponemos su versión para niñas y niños.</p>
+      </div>
+    </article>
+    <article class="card p2">
+      <div class="ph"><img src="img/turbinas.jpg" alt="Niñas y niños reunidos en una multicancha del barrio Las Turbinas"><span class="tag">Deporte y barrio</span></div>
+      <div class="bd">
+        <div class="who">Con Fundación Fútbol Más · tercer año (desde 2024) · 6 a 16 años</div>
+        <h3>Programa Barrio</h3>
+        <p>Deporte para el desarrollo: espacios protegidos en Santa Olga, José María Caro y, desde 2026, Las Turbinas.</p>
+        <div class="stats">
+          <div><b>≈150</b><span>NNA en dos años</span></div>
+          <div><b>30 + 25</b><span>docentes y talleristas formados</span></div>
+          <div><b>60</b><span>meta 2026 en Las Turbinas</span></div>
+        </div>
+        <p class="why"><b>Por qué nos importa.</b> Es la única iniciativa suya que cubre de lleno los 12 a 14 años, y ya lleva niños del barrio a una actividad real.</p>
+      </div>
+    </article>
+    <article class="card p3">
+      <div class="ph"><img src="img/espacio-tan.jpg" alt="Alejandra Fuenzalida y Edmundo Crespo firman un convenio sentados a una mesa"><span class="tag">Cuidado y socioemocional</span></div>
+      <div class="bd">
+        <div class="who">Con Fundación Ciudad del Niño · convenio junio 2026 · 4 a 9 años</div>
+        <h3>Espacio TAN!</h3>
+        <p>Cuidado seguro y lúdico después de clases, dentro del Colegio San Lucas, para que madres y padres trabajen tranquilos.</p>
+        <div class="stats">
+          <div><b>San Lucas</b><span>sede, Pedro Lira 9195</span></div>
+          <div><b>4–9</b><span>años</span></div>
+        </div>
+        <p class="why"><b>Por qué nos importa.</b> Muestra que El Sauce ya trae programas externos al colegio y sabe cómo hacerlo con las familias.</p>
+      </div>
+    </article>
+    <article class="card p4">
+      <div class="ph"><img src="img/plaza-san-lucas.jpg" alt="Vecinas y niños sentados en el pasto de una plaza con toldos"><span class="tag">Espacios públicos</span></div>
+      <div class="bd">
+        <div class="who">Fondo concursable · para organizaciones de la Ley 19.418</div>
+        <h3>Fondo Local «Espacios públicos para la niñez»</h3>
+        <p>Financia iniciativas de juntas de vecinos y organizaciones para mejorar plazas y espacios del barrio pensando en NNA.</p>
+        <p class="why"><b>Por qué nos importa.</b> Es nuestra tesis hecha programa: el territorio que acompaña la infancia. Lo que niñas y niños construyan en Minecraft puede alimentar las postulaciones.</p>
+      </div>
+    </article>
+    <article class="card p5">
+      <div class="ph"><img src="img/mujeres.jpg" alt="Vecinas de Lo Espejo conversan y ríen en un encuentro comunitario"><span class="tag">Memoria e identidad</span></div>
+      <div class="bd">
+        <div class="who">Con U. de Chile (Filosofía y Humanidades) y Municipalidad · julio 2026</div>
+        <h3>Historia de Lo Espejo</h3>
+        <p>Libro, 6 videos de voces testimoniales y 3 microdocumentales sobre los primeros pobladores, con una guía para usarlo en colegios.</p>
+        <p class="why"><b>Por qué nos importa.</b> Calza con «la ciudad como biblioteca»: esos relatos pueden ser libros del mundo que construyamos con los niños.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="stack">
+    <div class="panel ages">
+      <h4>A qué edades llega su cartera 2026</h4>
+      <p class="sub">Iniciativas con rango de edad publicado. La franja en óxido es la de nuestro grupo.</p>
+      <div class="scrollx">
+      <svg viewBox="0 0 700 270" role="img" aria-labelledby="agT">
+        <title id="agT">Rango de edad de cada iniciativa de El Sauce. Entre los 12 y los 14 años solo aparece Programa Barrio.</title>
+        <rect class="band" x="386" y="22" width="54" height="214" rx="3"/>
+        <text class="bl" x="413" y="14">7°–8° básico</text>
+        <line class="ax" x1="170" y1="236" x2="620" y2="236"/>
+        <line class="ax" x1="170" y1="22" x2="170" y2="236"/>
+        <text class="tick" x="170" y="254">0</text><text class="tick" x="260" y="254">5</text><text class="tick" x="350" y="254">10</text><text class="tick" x="440" y="254">15</text><text class="tick" x="530" y="254">20</text><text class="tick" x="620" y="254">25 años</text>
+        <text class="rl" x="160" y="40">Kinder Power</text><rect class="b" x="242" y="33" width="36" height="14" rx="3"/><text class="rng" x="284" y="40">pre-K y kínder</text>
+        <text class="rl" x="160" y="68">Espacio TAN!</text><rect class="b" x="242" y="61" width="90" height="14" rx="3"/><text class="rng" x="338" y="68">4–9</text>
+        <text class="rl" x="160" y="96">After school</text><rect class="b" x="242" y="89" width="108" height="14" rx="3"/><text class="rng" x="248" y="96" style="fill:var(--on-ink)">pre-K a 4° básico</text>
+        <text class="rl" x="160" y="124">Programa Barrio</text><rect class="b hit" x="278" y="117" width="180" height="14" rx="3"/><text class="rng" x="464" y="124">6–16</text>
+        <text class="rl" x="160" y="152">Preuniversitario</text><rect class="b" x="458" y="145" width="36" height="14" rx="3"/><text class="rng" x="500" y="152">III–IV medio</text>
+        <text class="rl" x="160" y="180">Continuidad estudios</text><rect class="b" x="494" y="173" width="36" height="14" rx="3"/><text class="rng" x="536" y="180">1°–2° año ed. sup.</text>
+        <text class="rl" x="160" y="208">Becas · Abriendo Futuro</text><rect class="b" x="494" y="201" width="108" height="14" rx="3"/><text class="rng" x="500" y="208" style="fill:var(--on-ink)">ed. superior</text>
+      </svg></div>
+      <p class="cap" style="margin-top:6px">Sin rango publicado: daleProfe (docentes), Mujeres Power (cuidadoras), Fondo Local (organizaciones), Identidad territorial (juventudes de la UV 37B).</p>
+    </div>
+    <div class="panel">
+      <h4>Las otras 9 iniciativas 2026</h4>
+      <p class="sub">Todas ejecutadas por un aliado</p>
+      <div class="others">
+        <div><b>Entorno seguro de aprendizaje</b><span>After school, pre-K a 4° básico · Acompañando Pasos</span></div>
+        <div><b>Programa integral de becas</b><span>Permanencia en la educación superior · F. Puente</span></div>
+        <div><b>Abriendo Futuro</b><span>Retención de primera generación · F. Portas</span></div>
+        <div><b>daleProfe</b><span>Hasta 40 proyectos de docentes de la comuna</span></div>
+        <div><b>Kinder Power</b><span>Vínculo cuidador–hijo · Familias Primero</span></div>
+        <div><b>Mujeres Power en acción</b><span>Madres y cuidadoras como primeras educadoras</span></div>
+        <div><b>Escuela pre-universitaria</b><span>III° y IV° medio · Formando Chile</span></div>
+        <div><b>Continuidad de estudios</b><span>1° y 2° año de educación superior</span></div>
+        <div><b>Identidad territorial</b><span>Juventudes de la UV 37B, con guía práctica</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ALEJANDRA -->
+<section id="alejandra"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Con quién nos reunimos</div><h2>Alejandra Fuenzalida</h2></div>
+    <p class="intro">Más de 24 años en el mundo social, casi todos levantando alianzas entre empresas y sociedad civil. Llegó a El Sauce desde United Way Chile.</p>
+  </div>
+  <div class="ale">
+    <div class="id">
+      <div class="portrait"><img src="img/ale.jpg" alt="Retrato de Alejandra Fuenzalida, de brazos cruzados, sonriendo"></div>
+      <h3>Alejandra Fuenzalida Stolzenbach</h3>
+      <p>Directora ejecutiva de Fundación El Sauce desde enero de 2024 y miembro del directorio del Colegio San Lucas desde marzo de 2026.</p>
+      <div class="badges">
+        <span class="k">100 Mujeres Líderes 2021</span>
+        <span>Ingeniera en Acuicultura · UNAB</span>
+        <span>Diplomado en liderazgo · FEN U. de Chile</span>
+      </div>
+    </div>
+    <div>
+      <div class="panel career">
+        <h4>Trayectoria</h4>
+        <p class="sub">Dos décadas en United Way Chile, la red de filantropía colectiva, antes de dirigir El Sauce</p>
+        <div class="scrollx">
+        <svg viewBox="0 0 620 222" role="img" aria-labelledby="crT">
+          <title id="crT">Trayectoria de Alejandra Fuenzalida entre 2003 y 2026</title>
+          <line class="ax" x1="40" y1="196" x2="600" y2="196"/>
+          <text class="tick" x="84" y="214">2004</text><text class="tick" x="172" y="214">2008</text><text class="tick" x="260" y="214">2012</text><text class="tick" x="348" y="214">2016</text><text class="tick" x="436" y="214">2020</text><text class="tick" x="524" y="214">2024</text>
+          <rect class="b" x="71" y="8" width="35" height="22" rx="4"/><text class="t" x="112" y="19">Fundación Valora · capacitación y voluntariado</text>
+          <rect class="b k" x="95" y="38" width="286" height="22" rx="4"/><text class="t in" x="103" y="49">United Way Chile · coordinación general</text>
+          <rect class="b k" x="381" y="68" width="143" height="22" rx="4"/><text class="t" x="373" y="79" text-anchor="end">United Way Chile · directora ejecutiva</text>
+          <rect class="b" x="374" y="98" width="57" height="22" rx="4"/><text class="t" x="366" y="109" text-anchor="end">Radio ADN · panelista «Agenda de Género»</text>
+          <rect class="b now" x="524" y="128" width="64" height="22" rx="4"/><text class="t" x="516" y="139" text-anchor="end">Fundación El Sauce · directora ejecutiva</text>
+          <rect class="b now" x="568" y="158" width="20" height="22" rx="4"/><text class="t" x="560" y="169" text-anchor="end">Directorio del Colegio San Lucas</text>
+        </svg></div>
+      </div>
+      <div class="quotes">
+        <blockquote>«Esta alianza demuestra que es posible avanzar hacia un bienestar territorial real, donde las comunidades se organizan, participan y proyectan un mejor futuro para sus niños y niñas.»<cite>Sobre Fútbol Más, mayo 2026</cite></blockquote>
+        <blockquote>«Necesitamos medios que informen los problemas reales, pero que también sean capaces de mirar la complejidad de los barrios populares.»<cite>Columna con la alcaldesa Javiera Reyes, El Desconcierto, junio 2026</cite></blockquote>
+      </div>
+    </div>
+  </div>
+  <h4 style="margin:34px 0 0;font-size:15px;font-weight:600">Cómo conversar con ella</h4>
+  <div class="tips">
+    <div><b>Habla su idioma</b><p>Bienestar territorial, protagonismo de las comunidades, aliados, sostener, transferir.</p></div>
+    <div><b>Llega con un plan para que dure</b><p>Su preocupación pública con el Mapa es que siga vivo. Muestra qué queda instalado cuando termine la tesis.</p></div>
+    <div><b>Roles y compromisos claros</b><p>Viene de United Way: alianzas con acuerdos explícitos, plazos y métricas. Lleva qué pedimos y qué damos.</p></div>
+    <div><b>Cuida el relato de Lo Espejo</b><p>Escribió contra el estigma. Habla de oportunidades y comunidad, no solo de carencias.</p></div>
+    <div><b>Ella abre la puerta del San Lucas</b><p>Está en su directorio, pero la decisión de cursos pasa también por la dirección del colegio.</p></div>
+    <div><b>Pide una contraparte</b><p>Con un equipo de tres, el día a día probablemente lo vea Pamela (educación) o Camilo (social).</p></div>
+  </div>
+</div></section>
+
+<!-- CONEXIÓN -->
+<section id="conexion"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Conexión</div><h2>Su trabajo y el nuestro</h2></div>
+    <p class="intro">El Mapa responde «qué hay y dónde» para quien planifica. Nuestro proyecto responde «qué puedo hacer cerca, hoy» para niñas y niños, y devuelve lo que el Mapa no puede saber: qué usan, qué quieren y qué les falta.</p>
+  </div>
+  <div class="oneliner">
+    <div>
+      <div class="eyebrow">La ciudad de los niños, en una línea</div>
+      <p>Un mundo en Minecraft, con el método de ONU-Hábitat, donde Lo Espejo se lee como una biblioteca: cada actividad es un libro que sale y vuelve. Una app mínima con QR lleva del juego a la actividad real y mide si los niños llegan.</p>
+      <p class="small" style="margin-top:12px;font-family:var(--body);color:#D8D2C2">Tesis: cómo el territorio acompaña el paso de la infancia a la adolescencia. Profesor guía: Luis Valenzuela, director del CIT-UAI.</p>
+    </div>
+    <img src="img/captura.jpg" alt="Niño dibujando con lápices de colores">
+  </div>
+  <div class="bridge">
+    <div class="side"><div class="eyebrow">Hoy</div><h4>Mapa de Oportunidades</h4><p>CIT-UAI + El Sauce + Municipalidad. Para equipos municipales, fundaciones y familias: qué programas hay, dónde y para quién.</p></div>
+    <div class="flow" aria-hidden="true"><div>programas, lugares →</div><div class="back">← uso real, intereses, vacíos</div></div>
+    <div class="side us"><div class="eyebrow">Propuesta</div><h4>Su versión para NNA</h4><p>Para niñas y niños de 7° y 8°: un juego que los lleva a esos programas y una capa nueva de datos de uso, agregada y anónima, de vuelta al visor.</p></div>
+  </div>
+
+  <h4 style="margin:36px 0 0;font-size:15px;font-weight:600">Beneficio mutuo: siete puntos</h4>
+  <div class="benefits">
+    <div class="ben"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg></div><div><h4>Mantener vivo el Mapa</h4><dl><dt>El Sauce</dt><dd>Un uso nuevo y constante del Mapa: los niños lo consultan y lo actualizan con su uso real.</dd><dt class="us">Nosotros</dt><dd>Datos reales y validados para el mundo del juego, sin partir de cero.</dd></dl></div></div>
+    <div class="ben"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></div><div><h4>Cubrir los 12 a 14 años</h4><dl><dt>El Sauce</dt><dd>Su cartera es fuerte en primera infancia y en educación superior. Entre las iniciativas con edad publicada, de 12 a 14 solo aparece Programa Barrio.</dd><dt class="us">Nosotros</dt><dd>Exactamente la edad de la tesis: el paso de la infancia a la adolescencia.</dd></dl></div></div>
+    <div class="ben"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><div><h4>Evidencia para incidir</h4><dl><dt>El Sauce</dt><dd>Una tesis UAI con método ONU-Hábitat documenta un piloto replicable: su paso «transferir».</dd><dt class="us">Nosotros</dt><dd>Un caso real con contraparte, que la comisión puede evaluar.</dd></dl></div></div>
+    <div class="ben"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/></svg></div><div><h4>Más niños en sus programas</h4><dl><dt>El Sauce</dt><dd>Incentivos y QR que llevan del juego a Programa Barrio y a otras actividades, con asistencia medible.</dd><dt class="us">Nosotros</dt><dd>Actividades reales y cercanas donde probar el puente juego → calle.</dd></dl></div></div>
+    <div class="ben"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l9 7h-3v10H6V10H3z"/><path d="M10 20v-5h4v5"/></svg></div><div><h4>Espacios públicos según los niños</h4><dl><dt>El Sauce</dt><dd>Propuestas de plazas y multicanchas hechas por niños en Minecraft, útiles para su Fondo Local.</dd><dt class="us">Nosotros</dt><dd>Un destino concreto para lo que se co-diseña: no queda en el juego.</dd></dl></div></div>
+    <div class="ben"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M4 19V5"/></svg></div><div><h4>Identidad y memoria</h4><dl><dt>El Sauce</dt><dd>Su libro y documental llegan a niños de 12 a 14 en un formato que ellos usan.</dd><dt class="us">Nosotros</dt><dd>Contenido local y con permiso para los «libros» de la biblioteca.</dd></dl></div></div>
+    <div class="ben" style="grid-column:1 / -1"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h4>Datos mejores y más seguros</h4><dl><dt>El Sauce</dt><dd>Ya auditamos el visor: horario en 9 de 108 programas, cupos en 7. Entregamos la lista de campos mínimos para que un niño pueda decidir (días, hora, edad, inscripción, costo).</dd><dt class="us">Nosotros</dt><dd>Programas con datos completos que se pueden mostrar en el juego y la app.</dd></dl></div></div>
+  </div>
+  <div class="need"><b>Lo que pedimos</b><span class="chip">2 cursos</span><span class="chip">un colegio y su autorización</span><span class="chip">ruta de consentimiento con apoderados</span><span class="chip">contraparte en la fundación</span><span class="chip">sala y equipos</span><span class="chip">una fecha antes del 30 nov</span></div>
+</div></section>
+
+<!-- GRUPO -->
+<section id="grupo"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Objetivo de la reunión</div><h2>El grupo: 7° y 8° básico</h2></div>
+    <p class="intro">Idealmente dos cursos de un mismo colegio. La decisión es con El Sauce hoy y con la Municipalidad después (LV gestiona esa reunión).</p>
+  </div>
+  <div class="why78">
+    <div><b>12–14</b><span>años: el paso de la infancia a la adolescencia, objeto de la tesis</span></div>
+    <div><b>≈70</b><span>estudiantes en dos cursos <span class="mono">(estimado a 35 por curso; confirmar)</span></span></div>
+    <div><b>&lt;14</b><span>la mayoría: consentimiento de apoderados y asentimiento de cada niño</span></div>
+    <div><b>1 dic</b><span>rige la Ley 21.719 de datos personales</span></div>
+  </div>
+  <div class="opts">
+    <div class="opt rec">
+      <div class="lt"><span>A</span><em>Recomendada</em></div>
+      <h4>Colegio San Lucas, 7° y 8°</h4>
+      <ul>
+        <li class="pro">Es la casa de El Sauce; Alejandra está en su directorio.</li>
+        <li class="pro">6 de sus programas tienen el colegio como dirección, entre ellos Espacio TAN!.</li>
+        <li class="pro">UV 37B: la más poblada y con más oferta. Cumple el criterio de LV de «acotar donde hay más oferta».</li>
+        <li class="pro">A menos de 1 km de Programa Barrio (Don Ramón con Don Jaime).</li>
+        <li class="con">Particular subvencionado y ligado a la fundación: no es un colegio típico de la comuna.</li>
+      </ul>
+    </div>
+    <div class="opt">
+      <div class="lt"><span>B</span></div>
+      <h4>Un colegio de los barrios de Programa Barrio</h4>
+      <ul>
+        <li class="pro">Santa Olga, José María Caro o Las Turbinas: niños que ya van a una actividad real.</li>
+        <li class="pro">Permite observar el puente juego → calle con un programa en marcha.</li>
+        <li class="con">El Sauce no tiene relación directa con esos colegios.</li>
+        <li class="con">Probablemente municipal: requiere la autorización del DEM.</li>
+      </ul>
+    </div>
+    <div class="opt">
+      <div class="lt"><span>C</span></div>
+      <h4>Contraste: un curso en San Lucas y uno en una UV con poca oferta</h4>
+      <ul>
+        <li class="pro">Compara alta oferta (37B) con un «desierto» (UV 24 o 29), como recomendó Reflejo.</li>
+        <li class="con">Dos colegios: doble gestión y doble permiso.</li>
+        <li class="con">Menos acotado de lo que acordamos con LV.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="matrix scrollx">
+    <table>
+      <thead><tr><th>Criterio</th><th>A · San Lucas</th><th>B · Programa Barrio</th><th>C · Contraste</th></tr></thead>
+      <tbody>
+        <tr><td>Acceso y confianza vía El Sauce</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i class="f"></i></span>alto</td><td class="c"><span class="lv"><i class="f"></i><i></i><i></i></span>bajo</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i></i></span>medio</td></tr>
+        <tr><td>Oferta cercana (criterio LV)</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i class="f"></i></span>alta</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i></i></span>media</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i></i></span>mixta</td></tr>
+        <tr><td>Facilidad de consentimientos</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i class="f"></i></span>alta</td><td class="c"><span class="lv"><i class="f"></i><i></i><i></i></span>baja</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i></i></span>media</td></tr>
+        <tr><td>Permite comparar</td><td class="c"><span class="lv"><i class="f"></i><i></i><i></i></span>poco</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i></i></span>algo</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i class="f"></i></span>mucho</td></tr>
+        <tr><td>Gestión antes del 30 nov</td><td class="c"><span class="lv"><i class="f"></i><i class="f"></i><i class="f"></i></span>simple</td><td class="c"><span class="lv"><i class="f"></i><i></i><i></i></span>difícil</td><td class="c"><span class="lv"><i class="f"></i><i></i><i></i></span>difícil</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="scrollx">
+  <div class="road">
+    <div class="now"><i></i><b>11 nov</b><span>Reunión El Sauce: colegio y cursos</span></div>
+    <div><i></i><b>por fijar</b><span>Reunión con la Municipalidad (LV)</span></div>
+    <div><i></i><b>semana 16 nov</b><span>Autorización del colegio y consentimientos</span></div>
+    <div class="gate"><i></i><b>antes del 30 nov</b><span>Focus group 1: construir en Minecraft</span></div>
+    <div><i></i><b>1 dic</b><span>Rige la Ley 21.719</span></div>
+    <div><i></i><b>diciembre</b><span>Cierre del año escolar: 8° egresa de básica</span></div>
+  </div></div>
+  <h4 style="margin:30px 0 0;font-size:15px;font-weight:600">Salir de la reunión con</h4>
+  <ul class="checklist">
+    <li>Colegio y los dos cursos (7° y 8°)</li>
+    <li>Nombre de la contraparte en El Sauce y en el colegio</li>
+    <li>Cómo se piden los consentimientos a apoderados</li>
+    <li>Horario posible: Orientación, Tecnología o Consejo de curso</li>
+    <li>Sala, computadores o tablets para Minecraft</li>
+    <li>Fecha tentativa del primer focus group</li>
+  </ul>
+</div></section>
+
+<!-- PARA HOY -->
+<section id="hoy"><div class="wrap">
+  <div class="shead">
+    <div><div class="eyebrow">Para hoy</div><h2>Tres objetivos, seis preguntas</h2></div>
+    <p class="intro">Las mismas que van en el memo para LV.</p>
+  </div>
+  <div class="today">
+    <ol class="goals">
+      <li><b>Objetivo 1</b>Saber si les interesa una versión para niñas y niños del Mapa de Oportunidades, y cómo se involucrarían.</li>
+      <li><b>Objetivo 2</b>Acordar con quiénes trabajamos: colegio y dos cursos de 7° y 8° básico.</li>
+      <li><b>Objetivo 3</b>Dejar una fecha y una contraparte para el primer focus group, antes del 30 de noviembre.</li>
+    </ol>
+    <ol class="qs">
+      <li><div><b>¿Les interesa una versión del Mapa pensada para niñas y niños?</b><span>¿Cómo se involucrarían: co-diseño, difusión, mantener los datos al día?</span></div></li>
+      <li><div><b>¿Con qué colegio y qué cursos podemos trabajar?</b><span>¿San Lucas 7° y 8°? ¿Quién decide en el colegio: dirección, UTP, profesores jefe?</span></div></li>
+      <li><div><b>¿Cómo trabajan hoy el consentimiento con las familias?</b><span>¿Pueden canalizar consentimientos y asentimientos? ¿Tienen un protocolo con menores?</span></div></li>
+      <li><div><b>¿Es viable un focus group antes del 30 de noviembre?</b><span>Fin de año escolar, sala, computadores, horario de clases.</span></div></li>
+      <li><div><b>¿Cómo se mantiene hoy el Mapa y quién lo actualiza?</b><span>¿Les serviría una capa nueva de uso real, agregada y anónima?</span></div></li>
+      <li><div><b>¿Qué esperan ellos de esta alianza?</b><span>Métricas, informes, una presentación final, algo para su memoria anual.</span></div></li>
+    </ol>
+  </div>
+    <div class="strip">
+    <img src="img/comunidad.jpg" alt="Familias y niños en una actividad comunitaria al aire libre">
+    <img src="img/nina.jpg" alt="Niña sonriendo en una actividad">
+    <img src="img/jovenes-estudio.jpg" alt="Jóvenes estudiando juntos en una mesa">
+    <img src="img/futbolmas-sauce.jpg" alt="Niños con globos en una celebración de barrio">
+  </div>
+  <p class="cap" style="margin-top:6px">Fotos: Fundación El Sauce, Fútbol Más, Ciudad del Niño y CIT-UAI.</p>
+</div></section>
+
+<!-- FUENTES -->
+<section id="fuentes"><div class="wrap">
+  <div class="shead"><div><div class="eyebrow">Fuentes</div><h2>De dónde sale todo</h2></div><p class="intro">Revisadas hoy, 11 de noviembre de 2026.</p></div>
+  <ul class="src">
+    <li>Fundación El Sauce: <a href="https://www.fundacionelsauce.cl/la-fundacion">La Fundación</a>, <a href="https://www.fundacionelsauce.cl/nuestro-modelo">Nuestro modelo</a>, <a href="https://www.fundacionelsauce.cl/donde-trabajamos">Lo Espejo</a>, <a href="https://www.fundacionelsauce.cl/recursos">Recursos</a>.</li>
+    <li>CIT-UAI: <a href="https://cit.uai.cl/cit-uai-articula-el-mapa-de-oportunidades-de-bienestar-para-la-ninez-para-fortalecer-a-las-infancias-en-lo-espejo/">CIT-UAI articula el Mapa de Oportunidades</a> (21 abr 2026).</li>
+    <li>Municipalidad de Lo Espejo: <a href="https://www.loespejo.cl/lo-espejo-impulsa-mapa-de-oportunidades-de-bienestar-para-la-ninez-junto-a-fundacion-el-sauce-y-cit-uai/">Lo Espejo impulsa Mapa de Oportunidades</a> (20 abr 2026).</li>
+    <li>Fútbol Más: <a href="https://cl.futbolmas.org/futbol-mas-y-fundacion-el-sauce-dan-inicio-a-su-tercer-ano-de-trabajo-en-lo-espejo/">Tercer año de trabajo en Lo Espejo</a>.</li>
+    <li>Ciudad del Niño: <a href="https://www.ciudaddelnino.cl/noticias/fundacion-ciudad-del-nino-y-fundacion-el-sauce-formalizan-alianza-para-fortalecer-espacio-tan-en-lo-espejo/">Alianza Espacio TAN!</a> (2 jun 2026).</li>
+    <li>El Desconcierto: <a href="https://eldesconcierto.cl/opinion/lo-espejo-la-historia-que-no-aparece-los-titulares-n5459648">Lo Espejo: la historia que no aparece en los titulares</a> (18 jun 2026).</li>
+    <li>LinkedIn: <a href="https://cl.linkedin.com/in/alejandra-fuenzalida-stolzenbach-1614b3125">perfil público de Alejandra Fuenzalida Stolzenbach</a>.</li>
+    <li>CIT-UAI, visor <a href="https://experience.arcgis.com/experience/27567a41504b4bb9a488e677e846fb4f">Oportunidades NNA Comunidad</a>; capas descargadas el 28 sep 2026.</li>
+    <li>Reunión con Luis Valenzuela (CIT-UAI), 29 oct 2026.</li>
+  </ul>
+</div></section>
+</main>
+<footer><div class="wrap">Preparado para Raúl Rubilar · La ciudad de los niños · Proyecto final UAI · 11 nov 2026</div></footer>
+
+</body>
+</html>
